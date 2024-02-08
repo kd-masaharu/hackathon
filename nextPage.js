@@ -7,10 +7,11 @@ let params = url.searchParams;
 document.getElementById("time_result").innerHTML = "タイム：" + params.get('time').toString();
 
 var b = document.getElementById('btn');
-    
+
+const audio = new Audio('music.mp3');
 // イベントハンドラ
 b.addEventListener('click', function(){
-    const audio = new Audio('music.mp3');
+    audio.pause();
     audio.currentTime = 0;
     audio.play();
 }, false);
