@@ -16,3 +16,93 @@ html,body{
 	width:100%;
 	height: 100%;
 }
+
+.pole {
+    position: absolute;
+    bottom: -700px; /* 初期位置は画面の下 */
+    left: 70%;
+    transform: translateX(-50%);
+    width: 100px; /* 電柱の幅 */
+    height: 700px; /* 電柱の高さ */
+    background-image: url('telephone_pole.jpg'); 
+    background-size: cover; /* 画像をカバーする */
+    animation: poleAnimation 3s linear forwards infinite; /* アニメーションの再生方法を変更 */
+  }
+
+  .cat {
+    position: absolute;
+    bottom: 100px;
+    left: 20%;
+    width: 200px; 
+    height: 200px; 
+    background-image: url('cat.png');
+    background-size: cover; /* 画像をカバーする */
+    animation: catAnimation 0.2s linear forwards infinite; /* アニメーションの再生方法を変更 */
+  }
+
+  .audience {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px; 
+    height: 500px; 
+    background-image: url('audience.png');
+    background-size: cover; /* 画像をカバーする */
+    animation: audienceAnimation 1s linear forwards infinite; /* アニメーションの再生方法を変更 */
+  }
+
+  .kinoshita_kari {
+    position: absolute;
+    bottom: 0px;
+    left: -200px;
+    width: 230px; 
+    height: 400px; 
+    background-image: url('kinoshita_kari.png');
+    background-size: cover; /* 画像をカバーする */
+    animation: kinoshita_kariAnimation 1s linear forwards infinite; /* アニメーションの再生方法を変更 */
+  }
+
+
+  @keyframes poleAnimation {
+    0% {
+      bottom: -700px; /* 初期位置 */
+      transform: translateX(-50%) rotate(0deg); /* 初期状態 */
+    }
+    20% {
+      bottom: 0; /* 画面内に移動 */
+      transform: translateX(-50%) rotate(3deg); /* 初期状態 */
+    }
+    40% {
+      bottom: -100px; /* 画面内に移動 */
+      transform: translateX(-50%) rotate(15deg); /* 初期状態 */
+    }
+    100% {
+      bottom: -500px; /* 画面外へ戻る */
+      transform: translateX(-50%) rotate(90deg); /* 倒れる */
+    }
+  }
+
+  @keyframes catAnimation {
+    100% {
+      transform: translateX(-50%) rotate(360deg); /* 倒れる */
+    }
+  }
+
+  @keyframes audienceAnimation {
+    0%{
+      bottom: 200px;
+    }
+    50%{
+      bottom: -100px;
+    }
+    100% {
+      bottom: 200px;
+    }
+  }
+
+  @keyframes kinoshita_kariAnimation {
+    100% {
+      left: 100%;
+    }
+  }
