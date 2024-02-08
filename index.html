@@ -14,14 +14,14 @@
     }
     .grid-item {
         width: 100%;
-        height: 200px;
-        background-color: #cccccc;
+        min-height: 20vh;
+        background-color: #555555;
         border: 1px solid #aaaaaa;
         user-select: none;
     }
     .light {
         background-color: yellow;
-        animation: blink 1s infinite alternate;
+        animation: blink 0.5s infinite alternate;
         user-select: none;
     }
     @keyframes blink {
@@ -55,8 +55,15 @@
     <div class="grid-item" id="16"></div>
 </div>
 
+<div id="cnt">クリック数：0/30</div>
+<div id="time">タイム：0</div>
+遊び方<br>
+光っているマスをクリックしてください。30回クリックした速さを競います。
+
 <script>
     var cnt = 0;
+    var time = 0;
+    var is_starting = false;
     document.addEventListener("DOMContentLoaded", function() {
         var gridItems = document.querySelectorAll(".grid-item");
         var randomIndex = Math.floor(Math.random() * gridItems.length);
@@ -64,6 +71,18 @@
         
         function lightRandomGrid() {
             if (this.classList.contains("light")) {
+                const audio = new Audio('クリック.mp3');
+                audio.currentTime = 0;
+                audio.play();
+                cnt++;
+                if (cnt == 1){
+                    // 1000ミリ秒（1秒）ごとにcountUp関数を実行
+                    const timer = setInterval(countUp, 1);
+                }
+                if(cnt == 30){
+                    window.location.href = './nextPage.html?time=' + time; // 通常の遷移
+                }
+                document.getElementById("cnt").innerHTML = "クリック数：" + cnt.toString() + "/30";
                 gridItems[currentIndex].classList.remove("light");
                 do {
                     randomIndex = Math.floor(Math.random() * gridItems.length);
@@ -79,7 +98,15 @@
 
         // 初期のランダムなグリッドを光らせる
         gridItems[currentIndex].classList.add("light");
+
     });
+
+    // 1秒ごとにカウントアップする関数
+    function countUp() {
+    time++;
+    document.getElementById("time").innerHTML = "タイム：" + time.toString();
+    }
+
 </script>
 
 
