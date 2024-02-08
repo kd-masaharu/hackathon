@@ -27,6 +27,7 @@ html,body{
     background-image: url('telephone_pole.jpg'); 
     background-size: cover; /* 画像をカバーする */
     animation: poleAnimation 3s linear forwards infinite; /* アニメーションの再生方法を変更 */
+	z-index: -50;
   }
 
   .cat {
@@ -38,6 +39,7 @@ html,body{
     background-image: url('cat.png');
     background-size: cover; /* 画像をカバーする */
     animation: catAnimation 0.2s linear forwards infinite; /* アニメーションの再生方法を変更 */
+	z-index: -50;
   }
 
   .audience {
@@ -50,6 +52,7 @@ html,body{
     background-image: url('audience.png');
     background-size: cover; /* 画像をカバーする */
     animation: audienceAnimation 1s linear forwards infinite; /* アニメーションの再生方法を変更 */
+	z-index: -50;
   }
 
   .kinoshita_kari {
@@ -61,6 +64,7 @@ html,body{
     background-image: url('kinoshita_kari.png');
     background-size: cover; /* 画像をカバーする */
     animation: kinoshita_kariAnimation 1s linear forwards infinite; /* アニメーションの再生方法を変更 */
+	z-index: -50;
   }
 
 
